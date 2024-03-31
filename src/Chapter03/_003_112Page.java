@@ -1,6 +1,6 @@
 package Chapter03;
 
-public class _003_112Page2 {
+public class _003_112Page {
 	
 	class PointXY {
 		int x, y;
