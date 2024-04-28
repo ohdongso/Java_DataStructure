@@ -3,6 +3,7 @@ package Chapter06;
 public class _001_Ex6_1_221Page {
 	
 	public static void main(String[] args) {
+		// ==> 여기서부터 시작
 		
 	}
 }
@@ -27,13 +28,82 @@ class LinkedList {
 	}
 	
 	// 마지막 노드에 삽입
-	public void insertLastNode() {
-		
+	public void insertLastNode(String data) {
+		ListNode newNode = new ListNode();
+		if(head == null) {
+			this.head = newNode;
+		} else {
+			ListNode temp = head;
+			while(temp.link != null) {
+				temp = temp.link;
+				temp.link = newNode;
+			} // while문 끝.
+		}
 	}
 	
+	// 마지막 노드 삭제
+	public void deleteLastNode() {
+		ListNode pre, temp;
+		if(head == null) {
+			return;
+		}
+		
+		if(head.link == null) {
+			head = null;
+		} else {
+			pre = head;
+			temp = head.link;
+			while(temp.link != null) {
+				pre = temp;
+				temp = temp.link;
+			} // while 문
+			
+			pre.link = null;
+		}
+	}
 	
+	// 노드 탐색
+	public ListNode searchNode(String data) {
+		ListNode temp = this.head;
+		while(temp != null) {
+			if(data == temp.getData()) {
+				return temp;
+			} else {
+				temp = temp.link;
+			}
+		}
+		return temp;
+	}
 	
-}
+	// 노드 뒤집기
+	public void reverseList() {
+		ListNode next = head;
+		ListNode current = null;
+		ListNode pre = null;
+		while(next != null) {
+			pre = current;
+			current = next;
+			next = next.link;
+			current.link = pre;
+		} // while문 끝
+		
+		head = current;
+	}
+	
+	// 노드 출력하기
+	public void printList() {
+		ListNode temp = this.head;
+		System.out.printf("L = (");
+		while(temp != null) {
+			System.out.printf(temp.getData());
+			temp = temp.link;
+			if(temp != null) {
+				System.out.printf(", ");
+			}
+		} // while문 끝.
+		System.out.println(")");
+	}
+} // LinkedList 끝.
 
 // 2
 class ListNode {
