@@ -3,7 +3,17 @@ package Chapter06;
 public class _001_Ex6_1_221Page {
 	
 	public static void main(String[] args) {
-		// ==> 여기서부터 시작
+		// LinkedList 객체를 생성하면 ListNode 클래스 타입의변수 "head"에 null로 초기화 된다.
+		LinkedList L = new LinkedList();
+		System.out.println("(1) 공백 리스트에 노드 3개 삽입하기");
+		/*
+		 	insertLastNode 호출시 head 객체가 null이면 객체를 생성한다.
+		 	
+		 */
+		L.insertLastNode("월"); // 이 데이터가 저장이 안되고, head에 newNode객체만 담는데?
+		L.insertLastNode("수"); // temp변수에 head가 담기고 link 필드가 null이라서그 끝나는데?
+		L.insertLastNode("일"); // temp변수에 head가 담기고 link 필드가 null이라서그 끝나는데?
+		L.printList(); // LinkedList ==> printList() ==> ListNode ==> getData() ==> *에러발생 확인 필요*
 		
 	}
 }
@@ -30,7 +40,7 @@ class LinkedList {
 	// 마지막 노드에 삽입
 	public void insertLastNode(String data) {
 		ListNode newNode = new ListNode();
-		if(head == null) {
+		if(head == null) { // LinkedList 객체생성시 head의 값이 null로 초기화 되어 있으면 ListNode 객체를 생성해서 담는다.
 			this.head = newNode;
 		} else {
 			ListNode temp = head;
