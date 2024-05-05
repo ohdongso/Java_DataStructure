@@ -7,14 +7,23 @@ public class _001_Ex6_1_221Page {
 		LinkedList L = new LinkedList();
 		System.out.println("(1) 공백 리스트에 노드 3개 삽입하기");
 		
+		// 20240505 ==> 이부분 손디버깅해서 정확한 로직파악 필요
+		// "월"을 데이터 필드에 저장한 newNode를 생성 후 head가 현재 null 때문에, newNode를 head에 담아준다.
 		L.insertLastNode("월"); 
-		L.insertLastNode("수"); 
+		
+		// "수"를 데이터 필드에 저장한 newNode를 생성 후 head가 현재 null이 아니기 때문에, temp에 head를 담아준다.
+		// temp에 담긴 head의 link는 null이기 때문에, temp(head)의 link필드에 newNode를 저장한다.
+		L.insertLastNode("수");
+		
+		// "일"을 데이터 필드에 저장한 newNode를 생성 후 head가 현재 null이 아니기 때문에, temp에 head를 담아준다.
+		// temp에 담긴 head의 link는 null이 아니기 때문에, temp(head)의 기존에 link필드에 새로운 newNode를 저장한다.
 		L.insertLastNode("일");
-
 		
-		
-			
-		L.printList(); // *에러발생 확인 필요*, insertLastNode메서드 생성자 호출시 매개변수 누락문제.      
+		// head를 temp변수에 담고, 단순연결리스트에 값이 들어 있으면, 현재 temp data필드값을 출력하고, 
+		// 다음노드 링크를 저장, 다음노드 링크 값이 null이 아니면, ", " 출력 후 위의 과정 반복
+		L.printList(); 
+	
+	
 	}
 }
 
@@ -43,14 +52,16 @@ class LinkedList {
 		
 		// 공백리스트면
 		if(head == null) { // LinkedList 객체생성시 head의 값이 null로 초기화 되어 있으면 ListNode 객체를 head에 담는다.
+			// data 매개변수가 멤버변수로 들어간 ListNode객체를 head에 담는다.
 			this.head = newNode; // head의 클래스 타입이 ListNode다.
 		// 공백리스트가 아니면
 		} else {
-			ListNode temp = head;
+			ListNode temp = head; // 임시 ListNode인 temp에 기존에 저장 돼 있는 head노드를 저장한다.
 			while(temp.link != null) {
 				temp = temp.link;
-				temp.link = newNode;
 			} // while문 끝.
+			
+			temp.link = newNode;
 		}
 	}
 	
@@ -105,17 +116,19 @@ class LinkedList {
 	
 	// 노드 출력하기
 	public void printList() {
-		ListNode temp = this.head;
+		ListNode temp = this.head; // head는 제일 앞의 노드를 가리키는거 같네.
 		System.out.printf("L = (");
-		while(temp != null) {
+		while(temp != null) { // 단순연결리스트에 값이 들어 있으면
 			System.out.printf(temp.getData());
-			temp = temp.link;
+			temp = temp.link; // 다음노드 링크를 저장
 			if(temp != null) {
 				System.out.printf(", ");
 			}
 		} // while문 끝.
 		System.out.println(")");
 	}
+	
+	
 } // LinkedList 끝.
 
 // 2
