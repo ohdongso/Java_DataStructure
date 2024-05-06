@@ -5,24 +5,27 @@ public class _001_Ex6_1_221Page {
 	public static void main(String[] args) {
 		// LinkedList 객체를 생성하면 ListNode 클래스 타입의변수 "head"에 null로 초기화 된다.
 		LinkedList L = new LinkedList();
+		
 		System.out.println("(1) 공백 리스트에 노드 3개 삽입하기");
 		
-		// 20240505 ==> 이부분 손디버깅해서 정확한 로직파악 필요
-		// "월"을 데이터 필드에 저장한 newNode를 생성 후 head가 현재 null 때문에, newNode를 head에 담아준다.
-		L.insertLastNode("월"); 
+		// "월"을 데이터 필드에 저장한 newNode를 생성 후 첫 번째 값이기 때문에, "월"이 담긴 newNode객체를 head에 담아준다.
+		L.insertLastNode("월");
 		
-		// "수"를 데이터 필드에 저장한 newNode를 생성 후 head가 현재 null이 아니기 때문에, temp에 head를 담아준다.
-		// temp에 담긴 head의 link는 null이기 때문에, temp(head)의 link필드에 newNode를 저장한다.
+		// "수"를 데이터 필드에 저장한 newNode를 생성 후 두 번째 값이기 때문에, temp에 "월"노드를 담고
+		// temp("월" 노드)의 링크필드가 null이기 때문에, temp("월" 노드)의 링크필드에 newNode("수" 노드)의 링크를 저장해준다.
 		L.insertLastNode("수");
 		
-		// "일"을 데이터 필드에 저장한 newNode를 생성 후 head가 현재 null이 아니기 때문에, temp에 head를 담아준다.
-		// temp에 담긴 head의 link는 null이 아니기 때문에, temp(head)의 기존에 link필드에 새로운 newNode를 저장한다.
+		
+		// "일"을 데이터 필드에 저장한 newNode를 생성 후 세 번째 값이기 때문에, temp에 "월"노드를 담고
+		// temp("월" 노드)의 링크필드가 null이 아니기 때문에, 
+		// { temp = temp.link } == { temp("월", "수") = temp("수" 노드) }를 담는다.
+		// 결과적으로 head는 두 번째 담긴 "수"노드를 가리킨다. 그리고 "수"노드의 link필드에 newNode("일" 노드)의 링크를 저장해준다.
 		L.insertLastNode("일");
 		
-		// head를 temp변수에 담고, 단순연결리스트에 값이 들어 있으면, 현재 temp data필드값을 출력하고, 
-		// 다음노드 링크를 저장, 다음노드 링크 값이 null이 아니면, ", " 출력 후 위의 과정 반복
+		// 첫 번째 노드부터 순차적으로 출력한다.
 		L.printList(); 
-	
+		
+		
 	
 	}
 }
@@ -31,7 +34,7 @@ public class _001_Ex6_1_221Page {
 class LinkedList {
 	private ListNode head; // 노드 객체
 	
-	public LinkedList() { // 생성자
+	public LinkedList() { // 기본 생성자
 		head = null; // 기본생성자 null로 초기화
 	}
 	
@@ -51,19 +54,19 @@ class LinkedList {
 		ListNode newNode = new ListNode(data); // data를 입력받는 생성자 호출
 		
 		// 공백리스트면
-		if(head == null) { // LinkedList 객체생성시 head의 값이 null로 초기화 되어 있으면 ListNode 객체를 head에 담는다.
-			// data 매개변수가 멤버변수로 들어간 ListNode객체를 head에 담는다.
-			this.head = newNode; // head의 클래스 타입이 ListNode다.
+		if(head == null) {
+			this.head = newNode;
+			
 		// 공백리스트가 아니면
 		} else {
-			ListNode temp = head; // 임시 ListNode인 temp에 기존에 저장 돼 있는 head노드를 저장한다.
+			ListNode temp = head;
 			while(temp.link != null) {
 				temp = temp.link;
 			} // while문 끝.
 			
 			temp.link = newNode;
 		}
-	}
+	} // insertLastNode 끝.
 	
 	// 마지막 노드 삭제
 	public void deleteLastNode() {
@@ -116,12 +119,12 @@ class LinkedList {
 	
 	// 노드 출력하기
 	public void printList() {
-		ListNode temp = this.head; // head는 제일 앞의 노드를 가리키는거 같네.
+		ListNode temp = this.head; // head는 처음 저장된 노드를 가리키고 있다.
 		System.out.printf("L = (");
 		while(temp != null) { // 단순연결리스트에 값이 들어 있으면
-			System.out.printf(temp.getData());
+			System.out.printf(temp.getData()); // 노드의 데이터 출력
 			temp = temp.link; // 다음노드 링크를 저장
-			if(temp != null) {
+			if(temp != null) { // 다음노드 링크가 현재 노드의 링크에 저장 돼 있으면 콤마를 출력한다.
 				System.out.printf(", ");
 			}
 		} // while문 끝.
