@@ -25,8 +25,27 @@ public class _001_Ex6_1_221Page {
 		// 첫 번째 노드부터 순차적으로 출력한다.
 		L.printList(); 
 		
+		System.out.println("(2) 수 노드 뒤에 금 노드 삽입하기");
 		
-	
+		// head는 첫 번째 노드를 가리킨다.
+		// data("수")에 해당하는 데이터 필드값을 첫 번째 노드부터 비교해서 찾아낸다.
+		ListNode pre = L.searchNode("수");
+		
+		if(pre == null) {
+			System.out.println("검색실패>> 찾는 데이터가 없습니다.");
+		} else {
+			// pre는 현재 "수" 노드가 저장 돼 있다. 그리고 저장 할 "금" 데이터를 함수의 매개변수로 전달한다.
+			// 새로 삽일 할 "금" newNode객체를 생성한다. 링크필드는 null로 저장 돼 있다.
+			// "금"노드의 링크필드에 "수"노드의 링크필드 값을 넣어준다.(마지막값의 링크필드 값을 넣어준다.)
+			// "수"노드의 링크필드에 "금"노드의 링크필드 값을 넣어준다.(기존에 있던 노드 값을 최신화시켜준다.)
+			L.insertMiddleNode(pre, "금");
+			
+			// 첫 번째 노드부터 순차적으로 출력한다. 
+			L.printList();
+		}
+		
+		System.out.println("(3) 리스트의 노드를 역순으로 바꾸기");
+		
 	}
 }
 
@@ -40,12 +59,12 @@ class LinkedList {
 	
 	// 중간에 삽입
 	public void insertMiddleNode(ListNode pre, String data) {
-		ListNode newNode = new ListNode(data); // 새로 삽입될 노드의 데이터
+		ListNode newNode = new ListNode(data); // 새로 삽입될 "금" 노드를 생성한다.
 		
-		// 삽입 될 노드의 링크 필드에 pre(삽입할 위치의 앞에 있는 선행자노드 참조번지를)를 저장.
+		// "금"노드의 링크필드에 "수"노드의 링크필드 값을 넣어준다.(마지막값의 링크필드 값을 넣어준다.)
 		newNode.link = pre.link; 
 		
-		// 삽입될 선행자 노드의 링크필드에는 삽입 될 노드의 참조번지를 저장한다.
+		// "수"노드의 링크필드에 "금"노드의 링크필드 값을 넣어준다.(기존에 있던 노드 값을 최신화시켜준다.)
 		pre.link = newNode;
 	}
 	
