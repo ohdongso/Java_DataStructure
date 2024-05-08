@@ -46,6 +46,53 @@ public class _001_Ex6_1_221Page {
 		
 		System.out.println("(3) 리스트의 노드를 역순으로 바꾸기");
 		
+		/*	 	
+		 	- head는 LinkedList의 첫 번째(시작)노드를 가리킨다.
+		 	- next는 첫 번째 노드부터 마지막 노드까지 가리킨다.
+		 	- current는 리버스 되어야 할 next 노드를 담고 링크필드에 pre를 넣는다.
+		 	- pre는 리버스된 current노드가 가리켜야할 다음 링크필드 노드를 의미한다.
+		 	
+			- 기존 노드 정렬 ==> (월, 수, 금, 일)
+			- 첫 번째 노드가 네 번째 노드자리로 가서, 네 번째가 가리켜야 될 노드 링크필드 값을 가진다.(link:null) (수, 금, 일, "월")
+			- 첫 번째 노드가 세 번째 노드자리로 가서, 세 번째가 가리켜야 될 번째 노드 링크필드 값을 가진다.(link:"월") (금, 일, "수", "월")
+			- 첫 번째 노드가 두 번째 노드자리로 가서, 두 번째가 가리켜야 될 번째 노드 링크필드 값을 가진다.(link:"수") (일, "금", "수", "월")
+			- 첫 번째 노드가 첫 번째 노드자리로 가서, 첫 번째가 가리켜야 될 번째 노드 링크필드 값을 가진다.(link:"금") ("일", "금", "수", "월")
+		 	
+			1, 현재 LinkedList에는 (월, 수, 금, 일) 순서로 노드가 저장 돼 있다.
+		 	2, next에 head("월")을 넣어준다.
+		 	3, next가 null이 아니면, pre(null)에 current(null) 변수를 삽입한다.
+		 	4, current(null)변수에 next("월")노드를 삽입한다.
+		 	5, next에는 next의 다음 노드인("수")를 저장한다.
+			6, current("월")노드의 링크필드에는 pre(null)를 저장한다.
+			
+			7, 현재 LinkedList에는 (수, 금, 일, "월") 순서로 노드가 저장 돼 있다.
+			8, next가 null이 아니면, pre(null)에 current("월") 변수를 삽입한다.
+			9, current("월")변수에 next("수")노드를 삽입한다.
+			10, next에는 next의 다음 노드인("금")를 저장한다.
+			11, current("수")노드의 링크필드에는 pre("월")를 저장한다.
+			
+			12, 현재 LinkedList에는 (금, 일, "수", "월") 순서로 노드가 저장 돼 있다.
+			13, next가 null이 아니면, pre("월")에 current("수") 변수를 삽입한다.
+			14, current("수")변수에 next("금")노드를 삽입한다.
+			15, next에는 next의 다음 노드인("일")를 저장한다.
+			16, current("금")노드의 링크필드에는 pre("수")를 저장한다.
+			
+			17, 현재 LinkedList에는 (일, "금", "수", "월") 순서로 노드가 저장 돼 있다.
+			18, next가 null이 아니면, pre("수")에 current("금") 변수를 삽입한다.
+			19, current("금")변수에 next("일")노드를 삽입한다.
+			20, next에는 next의 다음 노드인(null)를 저장한다.
+			21, current("금")노드의 링크필드에는 pre("금")를 저장한다.
+			
+			22, 현재 LinkedList에는 ("일", "금", "수", "월") 순서로 노드가 저장 돼 있다.
+			23, next가 null이기 때문에, head(첫 번째 노드의미)에 current 노드를 저장 해 준다.	
+		} // while문 끝
+		    
+		 */
+		L.reverseList();
+		L.printList();
+		
+		System.out.println("(4) 리스트의 마지막 노드 삭제하기");
+		// 여기서부터 하면 된다.
 	}
 }
 
@@ -123,10 +170,11 @@ class LinkedList {
 	
 	// 노드 뒤집기
 	public void reverseList() {
-		ListNode next = head;
+		ListNode next = head; // 현재 "월"데이터가 저장 돼 있다.
 		ListNode current = null;
 		ListNode pre = null;
-		while(next != null) {
+		
+		while(next != null) { // 공백리스트가 아니면
 			pre = current;
 			current = next;
 			next = next.link;
