@@ -92,7 +92,24 @@ public class _001_Ex6_1_221Page {
 		L.printList();
 		
 		System.out.println("(4) 리스트의 마지막 노드 삭제하기");
-		// 여기서부터 하면 된다.
+		/*
+		 	- 현재 노드 ==> (일, 금, 수, 월)
+			- head는 LinkedList의 첫 번째(시작)노드를 가리킨다.
+			- pre는 링크필드가 null인 노드를 찾아내는 순간, 
+			- temp는
+			
+			1, head가 null이면 공백리스트기 때문에 함수를 return 한다.
+			2, head의 링크필드 값이 null이면 리스트에 값이 1개밖에 없다는 뜻이고, head에 null을 대입해주고 printList()를 호출해 준다.
+			3, 리스트에 2개 이상의 값이 있다면, 처음 한번 "pre"에는 head(첫 번째 노드)를 "temp"에는 head.link(두 번째 노드)를 저장한다.
+			4, temp.link(세 번째 노드)가 null이 아니면 "pre"(첫번째노드)에는 "temp"(두번째노드)를 담아주고 
+			   "temp"(두번째노드)에는 "temp.link"(세번째노드)를 담아준다.
+			5, temp.link(네 번째 노드)가 null이 아니면 "pre"(두번째노드)에는 "temp"(세번째노드)를 담아주고
+			   "temp"(세번째노드)에는 "temp.link"(네번째노드)를 담아준다.
+			6, temp.link(다섯 번째 노드)는 null이기 때문에 while문이 종료되고, 
+			   "pre.link"(세번째노드링크필드 값, 네번째노드의 주소 값)에 null을 저장하고 마지막 노드를 삭제해준다.
+		 */
+		L.deleteLastNode();
+		L.printList();
 	}
 }
 
