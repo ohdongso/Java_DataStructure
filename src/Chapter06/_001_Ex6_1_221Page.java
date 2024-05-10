@@ -15,7 +15,6 @@ public class _001_Ex6_1_221Page {
 		// temp("월" 노드)의 링크필드가 null이기 때문에, temp("월" 노드)의 링크필드에 newNode("수" 노드)의 링크를 저장해준다.
 		L.insertLastNode("수");
 		
-		
 		// "일"을 데이터 필드에 저장한 newNode를 생성 후 세 번째 값이기 때문에, temp에 "월"노드를 담고
 		// temp("월" 노드)의 링크필드가 null이 아니기 때문에, 
 		// { temp = temp.link } == { temp("월", "수") = temp("수" 노드) }를 담는다.
