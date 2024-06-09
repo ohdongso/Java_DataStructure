@@ -18,7 +18,9 @@
     삽입할 노드 new의 오른쪽 노드로 연결한다. ==> new.rlink <- pre.rlink
  2, 새 노드 new의 참조갑(500)을 노드 pre의 rlink에 저장하여 노드 new를 노드 pre의 오른쪽 노드로 연결한다. ==> pre.rlink <- new
  3, 참조변수 pre의 값(100)을 삽입할 노드 new의 link에 저장하여 노드 pre를 노드 new의 왼쪽노드로 연결한다. ==> new.link <- pre
- 4, ==> 여기서 부터
-
+ 4, new의 값(500)을 노드 new의 오른쪽 노드(new.rlink)의 link에 저장하여 노드 new의 
+    오른쪽 노드의 왼쪽 노드(new.rlink.llink)로 노드 new를 연결한다. ==> new.rlink.llink <- new
+-이중 연결 리스트에서의 삭제 연산
+ 1, ==> 여기서 부터
 
 */
