@@ -27,9 +27,8 @@
  
  1, 삭제할 노드 old의 오른쪽 노드의 참조값(old.rlink, 300)을 노드 old의 왼쪽 노드의 rlink(old.link.rlink)에
     저장하여 노드 old의 오른쪽 노드를 노드 old의 왼쪽 노드의 오른쪽에 연결한다. ==> old.llink.rlink <- old.rlink;
- 
- 
- 
+ 2, 삭제할 노드 old의 왼쪽 노드의 참조값(old.llink, 100)을 노드 old의 오른쪽 노드의 llink(old.rlink.link)에 저장하여
+    노드 old의 왼쪽 노드를 노드 old의 오른쪽 노드와 연결한다. ==> old.rlink.llink <- old.llink;
 */
 
 
