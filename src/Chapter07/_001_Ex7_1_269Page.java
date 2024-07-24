@@ -1,5 +1,7 @@
 package Chapter07;
 
+import java.util.Arrays;
+
 interface Stack {
 	boolean isEmpty();
 	void push(char item);
@@ -68,14 +70,43 @@ class ArrayStack implements Stack {
 	}
 	
 	public void printStack() {
-		
+		if(isEmpty())
+			System.out.println("Array Stack is empty!! %n %n");
+		else {
+			System.out.printf("Array Stack>> ");
+			for(int i = 0; i <= top; i++)
+				System.out.printf("%c ", itemArray[i]);
+			System.out.println(); System.out.println();
+		}
 	}
-	
+
+	public char[] getItemArray() {
+		return itemArray;
+	}
 } // ArrayStack 끝.
 
 public class _001_Ex7_1_269Page {
 	
 	public static void main(String[] args) {
+		int stackSize = 5;
+		char deletedItem;
+		ArrayStack S = new ArrayStack(stackSize);
 		
+		S.push('A');
+		S.printStack();
+		
+		S.push('B');
+		S.printStack();
+		
+		S.push('C');
+		S.printStack();
+		
+		deletedItem = S.pop();
+		if(deletedItem != 0)
+			System.out.println("deleted Item : " + deletedItem);
+		S.printStack();
+		
+		// top의 위치면 변경되서, pop을 했다고 하기에는 어려움이 있다.
+		System.out.println(Arrays.toString(S.getItemArray()));
 	}
 }
