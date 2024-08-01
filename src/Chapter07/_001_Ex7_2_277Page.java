@@ -8,25 +8,25 @@ interface Stack1 {
 	char peek();
 }
 
-class StackNode {
+class StackNode { // 노드 클래스
 	char data;
-	StackNode link;
+	StackNode link; // 객체
 }
 
-class LinkeStack implements Stack1 {
-	private StackNode top;
+class LinkedStack implements Stack1 {
+	private StackNode top; // 최상위 노드객체
 	
 	@Override
-	public boolean isEmpty() {	
+	public boolean isEmpty() { // top이 null이면 true를 반환한다.
 		return (top == null);
 	}
 
 	@Override
 	public void push(char item) {
 		StackNode newNode = new StackNode();
-		newNode.data = item;
-		newNode.link = top;
-		top = newNode;
+		newNode.data = item; // 새로들어온 노드 객체를 데이터에 저장
+		newNode.link = top; // 기존에 최상위 노드객체를 링크에 저장
+		top = newNode; // 새로운 노드를 top에 저장
 		System.out.println("Inserted Item : " + item);
 	}
 	
@@ -68,8 +68,8 @@ class LinkeStack implements Stack1 {
 			StackNode temp = top;
 			System.out.println("Linked Stack>> ");
 			while(temp != null) {
-				System.out.printf("\t %c \n", temp.data);
-				temp = temp.link;
+				System.out.printf("\t %c \n", temp.data); // top의 데이터 출력
+				temp = temp.link; // temp에 그 다음 노드 객체를 저장
 			} // while문 끝.
 			System.out.println();
 		}
@@ -79,8 +79,21 @@ class LinkeStack implements Stack1 {
 public class _001_Ex7_2_277Page {
 	public static void main(String[] args) {
 		char deletedItem;
-		// ==> 여기서 부터
+		LinkedStack LS = new LinkedStack();
 		
+		LS.push('A');
+		LS.printStack();
 		
+		LS.push('B');
+		LS.printStack();
+		
+		LS.push('C');
+		LS.printStack();
+		
+		deletedItem = LS.pop();
+		if(deletedItem != 0) {
+			System.out.println("deleted Item : " + deletedItem);
+		}
+		LS.printStack();
 	}
 }
