@@ -76,7 +76,7 @@ class LinkedStack implements Stack1 {
 	}
 }
 
-public class _001_Ex7_2_277Page {
+public class _002_Ex7_2_277Page {
 	public static void main(String[] args) {
 		char deletedItem;
 		LinkedStack LS = new LinkedStack();
