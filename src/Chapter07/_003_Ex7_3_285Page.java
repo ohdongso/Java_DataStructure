@@ -77,7 +77,36 @@ class OptExp {
 	private int expSize;
 	private char testCh, openPair;
 	
-	// ==> 여기서 부터
+	public boolean testPair(String exp) {
+		this.exp = exp;
+		LinkedStack1 S = new LinkedStack1();
+		expSize = this.exp.length();
+		for(int i =0; i < expSize; i++) {
+			testCh = this.exp.charAt(i);
+			switch(testCh) {
+				case '(' :
+				case '{' :
+				case '[' :
+					S.push(testCh); break;
+				case ')' :
+				case '}' :
+				case ']' :
+					if(S.isEmpty()) return false;
+					else {
+						openPair = S.pop();
+						if((openPair == '(' && testCh != ')') || 
+						   (openPair == '{' && testCh != '}') ||
+						   (openPair == '[' && testCh != ']'))
+						   return false;
+						else break;								
+					}
+			} // switch문 끝.
+		} // for문 끝.
+		if(S.isEmpty()) return true;
+		else return false;
+	} // testPair() 메서드 끝.
+	
+	// ==> toPostfix 함수부터
 }
 
 public class _003_Ex7_3_285Page {
