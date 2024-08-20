@@ -106,7 +106,43 @@ class OptExp {
 		else return false;
 	} // testPair() 메서드 끝.
 	
-	// ==> toPostfix 함수부터
+	public char[] toPostFix(String infix) {
+		char testCh;
+		exp = infix;
+		int expSize = 10;
+		int j = 0;
+		char postfix[] = new char[expSize];
+		LinkedStack1 S = new LinkedStack1();
+		
+		for(int i = 0; i <= expSize; i++) {
+			testCh = this.exp.charAt(i);
+			switch(testCh) {
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+				postfix[j++] = testCh; break;
+			
+			case '+' :
+			case '-' :
+			case '*' :
+			case '/' :
+				S.push(testCh); break;
+			
+			case ')' : postfix[j++] = S.pop(); break;
+			
+			default:
+			} // switch문 끝.
+		} // for문 끝.
+		postfix[j] = S.pop();
+		return postfix;
+	} // toPostFix() 메서드
 }
 
 public class _003_Ex7_3_285Page {
