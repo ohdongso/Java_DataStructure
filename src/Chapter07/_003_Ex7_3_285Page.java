@@ -148,6 +148,11 @@ class OptExp {
 public class _003_Ex7_3_285Page {
 	
 	public static void main(String[] args) {
+		OptExp opt = new OptExp(); // ¸â¹öº¯¼ö, testPair, toPostfix
+		String exp = "(3*5)-(6/2)";
+		char postfix[];
+		int value;
+		System.out.println(exp);
 		
 	}
 }
