@@ -134,7 +134,6 @@ class OptExp {
 			case '*' :
 			case '/' :
 				S.push(testCh); break;
-			
 			case ')' : postfix[j++] = S.pop(); break;
 			
 			default:
