@@ -24,6 +24,10 @@ class LinkedStack1 implements Stack2 {
 	@Override
 	public void push(char item) {
 		stacknode1 newNode = new stacknode1();
+		newNode.data = item;
+		newNode.link = top;
+		top = newNode;
+		// System.out.println("Inserted Item : " + item);
 	}
 
 	@Override
@@ -81,7 +85,7 @@ class OptExp {
 		this.exp = exp;
 		LinkedStack1 S = new LinkedStack1();
 		expSize = this.exp.length();
-		for(int i =0; i < expSize; i++) {
+		for(int i = 0; i < expSize; i++) { // 0~10
 			testCh = this.exp.charAt(i);
 			switch(testCh) {
 				case '(' :
@@ -91,19 +95,26 @@ class OptExp {
 				case ')' :
 				case '}' :
 				case ']' :
-					if(S.isEmpty()) return false;
-					else {
+					if(S.isEmpty()) {
+						return false;
+					} else {
 						openPair = S.pop();
 						if((openPair == '(' && testCh != ')') || 
 						   (openPair == '{' && testCh != '}') ||
-						   (openPair == '[' && testCh != ']'))
-						   return false;
-						else break;								
+						   (openPair == '[' && testCh != ']')) {
+							return false;
+						} else {
+							break;								
+						}
 					}
 			} // switch문 끝.
 		} // for문 끝.
-		if(S.isEmpty()) return true;
-		else return false;
+		
+		if(S.isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
 	} // testPair() 메서드 끝.
 	
 	public char[] toPostFix(String infix) {
@@ -153,5 +164,14 @@ public class _003_Ex7_3_285Page {
 		int value;
 		System.out.println(exp);
 		
+		if(opt.testPair(exp)) {
+			System.out.println("괄호 맞음!");
+		} else {
+			System.out.println("괄호 틀림!!!");
+		}
+		
+		System.out.printf("\n후위표기식 : ");
+		postfix = opt.toPostFix(exp);
+		System.out.println(postfix);
 	}
 }
