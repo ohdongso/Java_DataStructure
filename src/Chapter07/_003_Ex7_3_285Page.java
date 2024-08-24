@@ -138,13 +138,16 @@ class OptExp {
 			case '7':
 			case '8':
 			case '9':
+				// 숫자면 문자형 배열에 담는다.
 				postfix[j++] = testCh; break;
 			
 			case '+' :
 			case '-' :
 			case '*' :
 			case '/' :
+				// 부호면 stack에 푸시한다.
 				S.push(testCh); break;
+				// 우측괄호면 숫자가 저장된 배열에 부호를 추가한다.
 			case ')' : postfix[j++] = S.pop(); break;
 			
 			default:
