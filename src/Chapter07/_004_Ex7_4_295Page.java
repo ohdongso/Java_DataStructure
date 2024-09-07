@@ -41,10 +41,10 @@ class OptExp2 {
 		char testCh;
 		for(int i = 0; i < 7; i++) {
 			testCh = exp.charAt(i);
-			if(testCh != '+' && testCh != '-' && testCh != '*' && testCh != '/') {
+			if(testCh != '+' && testCh != '-' && testCh != '*' && testCh != '/') { // 피연산자
 				value = testCh - '0';
 				S.push(value);
-			} else {
+			} else { // 연산자
 				opr2 = S.pop();
 				opr1 = S.pop();
 				switch(testCh) {
