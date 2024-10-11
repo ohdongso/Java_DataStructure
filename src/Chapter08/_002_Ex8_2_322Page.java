@@ -88,27 +88,27 @@ public class _002_Ex8_2_322Page {
 	public static void main(String[] args) {
 		int queueSize = 4;
 		char deletedItem;
-		ArrayCQueue cQ = new  ArrayCQueue(queueSize);
+		ArrayCQueue cQ = new  ArrayCQueue(queueSize); // itemArray 배열생성
 		
-		cQ.enQueue('A');
-		cQ.printQueue();
+		cQ.enQueue('A'); // rear=1에 A저장, front=0
+		cQ.printQueue(); // 1~1 출력
 		
-		cQ.enQueue('B');
-		cQ.printQueue();
+		cQ.enQueue('B'); // rear=2에 B저장, front=0
+		cQ.printQueue(); // 1~2 출력
 		
-		deletedItem = cQ.deQueue();
-		if(deletedItem != 0) {
+		deletedItem = cQ.deQueue(); // rear=2, front=1 A를 출력
+		if(deletedItem != 0) { // 삭제 후 반환 값이 0이 아니면 출력
 			System.out.println("deleted Item : " + deletedItem);
 		}
-		cQ.printQueue();
+		cQ.printQueue(); // 시작값 2, 종료값 3 ==> B출력
 		
-		cQ.enQueue('C');
-		cQ.printQueue();
+		cQ.enQueue('C'); // rear=3에 C저장, front=1, (3 / 4 == 1)면 isFull
+		cQ.printQueue(); // 시작값 2, 종료값 4 ==> B, C 출력
 		
-		cQ.enQueue('D');
-		cQ.printQueue();
+		cQ.enQueue('D'); // rear=4에 D저장, front=1, (4 / 4 == 1)면 isFull
+		cQ.printQueue(); // 시작값 2, 종료값 5 ==> B, C, D출력
 		
-		cQ.enQueue('E');
+		cQ.enQueue('E'); // (5 / 4 == 1)면 isFull
 		cQ.printQueue();
 	}
 }
