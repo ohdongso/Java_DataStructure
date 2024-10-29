@@ -23,6 +23,9 @@ class LinkedQueue implements Queue1 {
 	}
 	
 	public boolean isEmpty() {
+		/*
+		 	1, 첫 데이터 입력 시, front가 null이기 때문에 "true"반환
+		 */
 		return (front == null);
 	}
 
@@ -94,6 +97,20 @@ class LinkedQueue implements Queue1 {
 public class _003_Ex8_3_331Page {
 	
 	public static void main(String[] args) {
+		char deletedItem;
+		LinkedQueue LQ = new LinkedQueue();
 		
+		LQ.enQueue('A');
+		LQ.printQueue();
+		
+		LQ.enQueue('B');
+		LQ.printQueue();
+		
+		deletedItem = LQ.deQueue();
+		if(deletedItem != 0) {
+			System.out.println("deleted Item : " + deletedItem);
+		}
+		
+		LQ.printQueue();
 	}
 }
