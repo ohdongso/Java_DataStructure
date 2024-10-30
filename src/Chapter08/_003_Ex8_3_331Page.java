@@ -109,8 +109,28 @@ public class _003_Ex8_3_331Page {
 		deletedItem = LQ.deQueue();
 		if(deletedItem != 0) {
 			System.out.println("deleted Item : " + deletedItem);
-		}
+		}	
+		LQ.printQueue();
 		
+		LQ.enQueue('C');
+		LQ.printQueue();
+		
+		deletedItem = LQ.deQueue();
+		if(deletedItem != 0) {
+			System.out.println("deleted Item : " + deletedItem);
+		}
+		LQ.printQueue();
+		
+		deletedItem = LQ.deQueue();
+		if(deletedItem != 0) {
+			System.out.println("deleted Item : " + deletedItem);
+		}
+		LQ.printQueue();
+		
+		deletedItem = LQ.deQueue();
+		if(deletedItem != 0) {
+			System.out.println("deleted Item : " + deletedItem);
+		}
 		LQ.printQueue();
 	}
 }
