@@ -90,7 +90,17 @@
 	(5), 원소 C 삽입 : enQueue(LQ, C);
 	(6), 원소 삭제 : deQueue(LQ);
 	(7), 원소 삭제 : deQueue(LQ);
+	
+● 덱의 구조
+- 덱은 큐의 양쪽 끝에서 삽입과 삭제가 모두 발생할 수 있는 큐로서, 스택의 성질과 큐의 성질을 모두 가지고 있는 자료구조다.
+덱의 연산은 스택과 큐의 연산을 모두 가지고 있다. 덱의 insertFront() 연산과 deleteFront() 연산은 front를
+스택의 top으로 생각했을 때 스택의 push() 연산, pop() 연산과 같고, 덱의 insertRear() 연산과 deleteRear() 연산은 rear를 스택의 top으로 생각
+했을 때 스택의 push() 연산, pop() 연산과 같다. 그리고 덱의 insertRear() 연산과 
+deleteFront() 연산은 일반 큐의 enQueue()연산, deQueue() 연산과 같다.
+	
 */
+
+
 
 
 
