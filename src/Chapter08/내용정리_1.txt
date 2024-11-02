@@ -97,10 +97,20 @@
 스택의 top으로 생각했을 때 스택의 push() 연산, pop() 연산과 같고, 덱의 insertRear() 연산과 deleteRear() 연산은 rear를 스택의 top으로 생각
 했을 때 스택의 push() 연산, pop() 연산과 같다. 그리고 덱의 insertRear() 연산과 
 deleteFront() 연산은 일반 큐의 enQueue()연산, deQueue() 연산과 같다.
-	
+
+1, createDeque();
+2, insertFront(DQ, 'A') ==> DQ('A')
+3, insertFront(DQ, 'B') ==> DQ('B', 'A')
+4, insertRead(DQ, 'C') ==> DQ('B', 'A', 'C')
+5, deleteFront(DQ) ==> DQ('A', 'C')
+6, deleteRear(DQ) ==> DQ('A')
+7, insertRear(DQ, 'D') ==> DQ('A', 'B')
+8, insertFront(DQ, 'E') ==> DQ('E', 'A', 'D')
+9, insertFront(DQ, 'F') ==> DQ('F', 'E', 'A', D)
+==> 덱은 양쪽 끝에서 삽입/삭제 연산이 가능해야 하기 때문에 다음과 같이 왼쪽 링크 필드와 오른쪽 링크 필드를 가지는 노드를
+사용하는 이중 연결 리스트를 이용하여 구현한다.
+
 */
-
-
 
 
 
