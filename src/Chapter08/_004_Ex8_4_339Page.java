@@ -151,6 +151,30 @@ class DQueue {
 public class _004_Ex8_4_339Page {
 	
 	public static void main(String[] args) {
+		char deletedItem;
+		
+		/*
+		 	(front, rear, isEmpty) 3개 세팅
+		 */
+		DQueue DQ = new DQueue();
+		
+		/*
+		  	1, DQNode newNode 생성
+		  	2, newNode의 data 필드에 'A'저장
+		  	3, isEmpty는 true, front와 rear에 newNode를 저장
+		  	4, new의 rlink와 llink에 null 저장
+		 */
+		DQ.insertFront('A');
+		
+		/*
+		 	1, DQNode(data, rlink, llink) temp에 front저장
+		 	2, temp가 null이 아니면 temp의 data를 출력
+		 	3, 그리고 temp에 temp의 link를 저장해서 front를 다음으로 변경
+		 */
+		DQ.printDQueue();
 		
 	}
 }
+
+
+
