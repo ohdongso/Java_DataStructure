@@ -173,8 +173,25 @@ public class _004_Ex8_4_339Page {
 		 */
 		DQ.printDQueue();
 		
+		DQ.insertFront('B');
+		DQ.printDQueue();
+		
+		DQ.insertRear('C');
+		DQ.printDQueue();
+		
+		deletedItem = DQ.deleteFront();
+		if(deletedItem != 0) {
+			System.out.println("Front deleted Item : " + deletedItem);
+		}
+		DQ.printDQueue();
+		
+		DQ.insertRear('D');
+		DQ.printDQueue();
+		
+		DQ.insertFront('E');
+		DQ.printDQueue();
+		
+		DQ.insertFront('F');
+		DQ.printDQueue();
 	}
 }
-
-
-
