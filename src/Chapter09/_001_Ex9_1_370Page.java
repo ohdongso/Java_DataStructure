@@ -4,7 +4,9 @@ class TreeNode {
 	Object data;
 	TreeNode left;
 	TreeNode right;
-	
+}
+
+class LinkedTree {
 private TreeNode root;
 	
 	public TreeNode makeBT(TreeNode bt1, Object data, TreeNode bt2) {
@@ -42,6 +44,9 @@ private TreeNode root;
 public class _001_Ex9_1_370Page {
 	
 	public static void main(String[] args) {
-		// ==> 여기서 부터
+		LinkedTree T = new LinkedTree();
+		
+		TreeNode n7 = T.makeBT(null, 'D', null);
+		
 	}
 }
