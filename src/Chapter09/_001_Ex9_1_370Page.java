@@ -29,6 +29,7 @@ private TreeNode root;
 		if(root != null) {
 			inorder(root.left);
 			System.out.printf("%c", root.data);
+			inorder(root.right);
 		}
 	}
 	
@@ -57,6 +58,9 @@ public class _001_Ex9_1_370Page {
 		System.out.printf("\n Preorder : ");
 		T.preorder(n1);
 		
+		System.out.printf("\n Inorder : ");
+		T.inorder(n1);
 		
 	}
+	
 }
