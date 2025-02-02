@@ -61,6 +61,7 @@ public class _001_Ex9_1_370Page {
 		System.out.printf("\n Inorder : ");
 		T.inorder(n1);
 		
-	}
-	
+		System.out.printf("\n Postorder : ");
+		T.postorder(n1);
+	}	
 }
