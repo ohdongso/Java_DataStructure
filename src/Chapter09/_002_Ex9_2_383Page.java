@@ -36,6 +36,7 @@ class BinarySearchTree {
 	}
 	
 	public void insertBST(char x) {
+		System.out.println("root.data : " + root.data);
 		root = insertKey(root, x);
 	}
 	
@@ -73,10 +74,13 @@ public class _002_Ex9_2_383Page {
 	public static void main(String[] args) {
 		BinarySearchTree bsT = new BinarySearchTree();
 		bsT.insertBST('G');
-//		bsT.insertBST('I');
+		bsT.insertBST('I');
 		
 		
-		
+		/*
+		System.out.printf("\nBinary Tree >>> ");
+		bsT.printBST();
+		*/
 	}	
 }
 
