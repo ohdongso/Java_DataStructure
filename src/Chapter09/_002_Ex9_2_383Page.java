@@ -17,26 +17,19 @@ class BinarySearchTree {
 		newNode.left = null;
 		newNode.right = null;
 		if(p == null) {
-			System.out.println("확인1");
 			return newNode;
 		} else if(newNode.data < p.data) {
-			System.out.println("확인2");
 			p.left = insertKey(p.left, x);
 			return p;
 		} else if(newNode.data > p.data) {
-			System.out.println("확인3");
-			System.out.println("newNode.data : " + newNode.data);
-			System.out.println("p.data : " + p.data);
 			p.right = insertKey(p.right, x);
 			return p;
 		} else {
-			System.out.println("확인4");
 			return p;
 		}
 	}
 	
 	public void insertBST(char x) {
-		System.out.println("root.data : " + root.data);
 		root = insertKey(root, x);
 	}
 	
@@ -74,13 +67,16 @@ public class _002_Ex9_2_383Page {
 	public static void main(String[] args) {
 		BinarySearchTree bsT = new BinarySearchTree();
 		bsT.insertBST('G');
-//		bsT.insertBST('I');
+		bsT.insertBST('I');
 		
 		
-		/*
+		
+		
+		
+
 		System.out.printf("\nBinary Tree >>> ");
 		bsT.printBST();
-		*/
+
 	}	
 }
 
