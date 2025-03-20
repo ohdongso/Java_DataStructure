@@ -67,8 +67,8 @@ public class _002_Ex9_2_383Page {
 	public static void main(String[] args) {
 		BinarySearchTree bsT = new BinarySearchTree();
 		bsT.insertBST('G');
-		// bsT.insertBST('I');
-		// bsT.insertBST('H');
+		bsT.insertBST('I');
+		bsT.insertBST('H');
 		
 		
 		
