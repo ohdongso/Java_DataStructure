@@ -31,9 +31,6 @@ class BinarySearchTree {
 	
 	public void insertBST(char x) {
 		root = insertKey(root, x);
-		
-		// 여기서 디버깅 하자
-		System.out.println("root.data : " + root.data);
 	}
 	
 	public TreeNode1 searchBST(char x) {
@@ -62,7 +59,11 @@ class BinarySearchTree {
 		inorder(root);
 		System.out.println();
 	}
-	
+
+	public TreeNode1 getRoot() {
+		return root;
+	}
+
 }
 
 public class _002_Ex9_2_383Page {
@@ -70,11 +71,14 @@ public class _002_Ex9_2_383Page {
 	public static void main(String[] args) {
 		BinarySearchTree bsT = new BinarySearchTree();
 		bsT.insertBST('G');
-		bsT.insertBST('I');
-		bsT.insertBST('H');
 		
+		// bsT.insertBST('I');
+		// bsT.insertBST('H');
 		// bsT.insertBST('D');
 		
+		System.out.println("bsT.getRoot().data : " + bsT.getRoot().data);
+		System.out.println("bsT.getRoot().data : " + bsT.getRoot().left);
+		System.out.println("bsT.getRoot().data : " + bsT.getRoot().right.data);
 		
 		// System.out.printf("\nBinary Tree >>> ");
 		// bsT.printBST();
