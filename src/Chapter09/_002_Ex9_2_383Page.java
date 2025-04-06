@@ -71,20 +71,52 @@ public class _002_Ex9_2_383Page {
 	public static void main(String[] args) {
 		BinarySearchTree bsT = new BinarySearchTree();
 		bsT.insertBST('G');
+		bsT.insertBST('I');
+		bsT.insertBST('H');
 		
-		// bsT.insertBST('I');
-		// bsT.insertBST('H');
 		// bsT.insertBST('D');
 		
+		System.out.println("------------------------------------------------");
 		System.out.println("bsT.getRoot().data : " + bsT.getRoot().data);
-		System.out.println("bsT.getRoot().data : " + bsT.getRoot().left);
-		System.out.println("bsT.getRoot().data : " + bsT.getRoot().right.data);
+		System.out.println("bsT.getRoot().left : " + bsT.getRoot().left);
+		// System.out.println("bsT.getRoot().left : " + bsT.getRoot().right); ==> 저장된 노드 위치(G)
+		System.out.println("bsT.getRoot().right.data : " + bsT.getRoot().right.data);
+		
+		System.out.println("------------------------------------------------");
+		System.out.println("bsT.getRoot().data : " + bsT.getRoot().data);
+		System.out.println("bsT.getRoot().left : " + bsT.getRoot().left);
+		System.out.println("bsT.getRoot().right.data : " + bsT.getRoot().right.data);
+		// System.out.println("bsT.getRoot().right.right : " + bsT.getRoot().right.right); ==> 저장된 노드 위치(I)
+		System.out.println("bsT.getRoot().right.right.data : " + bsT.getRoot().right.right.data);
+		
+		System.out.println("------------------------------------------------");
+		System.out.println("bsT.getRoot().data : " + bsT.getRoot().data);
+		System.out.println("bsT.getRoot().left : " + bsT.getRoot().left);
+		System.out.println("bsT.getRoot().right.data : " + bsT.getRoot().right.data);
+		System.out.println("bsT.getRoot().right.right.data : " + bsT.getRoot().right.right.data);
+		// System.out.println("bsT.getRoot().right.right.data : " + bsT.getRoot().right.right.left); ==> 저장된 노드 위치(H)
+		System.out.println("bsT.getRoot().right.right.data : " + bsT.getRoot().right.right.left.data);
+		
+		
+		/*
+		System.out.println("bsT.getRoot().right.right : " + bsT.getRoot().right.left);
+		System.out.println("bsT.getRoot().right.right : " + bsT.getRoot().right.left.data);
+		System.out.println("bsT.getRoot().right.right.data : " + bsT.getRoot().right.right.data);
+		*/
+		
+		
+		
+		
+		
 		
 		// System.out.printf("\nBinary Tree >>> ");
 		// bsT.printBST();
 
 	}	
 }
+
+
+
 
 
 
