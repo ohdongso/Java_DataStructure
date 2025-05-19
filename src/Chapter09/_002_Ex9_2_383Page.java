@@ -73,7 +73,6 @@ public class _002_Ex9_2_383Page {
 		bsT.insertBST('G');
 		bsT.insertBST('I');
 		// bsT.insertBST('H');
-		
 		// bsT.insertBST('D');
 		
 		System.out.println("------------------------------------------------");
